@@ -1,0 +1,52 @@
+{% extends "Flashcards/base.html" %}
+{% block content %}
+
+<center>
+{% if my_answer %}
+    <div class="alert alert-{{ color }}" role="alert">
+
+
+    {{ my_answer }} <br> <br>
+        <p class="text-{{color}}"> <b> {{ result }} </b> </p>
+
+        {{ tense_old }}
+    </div>
+</center>
+{% endif %}
+<center>
+    <h1> Practice Phrases</h1>
+</center>
+
+    <form action= "{% url 'Flashcards-phrases' %}" method="POST">
+        {% csrf_token %}
+
+<div class="form-floating mb-3">
+
+<input class="form-control" type="text" value="{{ French }}" autocomplete="off"
+       aria-label="readonly input example" readonly name="question">
+
+<input class="visually-hidden" type="text" value="{{ English }}" autocomplete="off"
+       aria-label="readonly input example" readonly name="correct">
+
+    <label for="floatingInput">Please Translate </label>
+
+<input class="visually-hidden" type="text" value="{{ Tenses }}" autocomplete="off"
+       aria-label="readonly input example" readonly name="Tenses">
+
+
+</div>
+
+<div class="form-floating mb-3">
+
+    <input type="text" class="form-control" id="floatingInput" autocomplete="off" placeholder="Type your answer here" name="answer">
+  <label for="floatingInput">Enter your response</label>
+
+</div>
+        <center>
+        <button type="submit" class="btn btn-danger">Submit</button>
+            </center>
+    </form>
+
+
+{% endblock content %}
+

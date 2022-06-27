@@ -1,0 +1,47 @@
+{% extends "Flashcards/base.html" %}
+{% block content %}
+<br>
+<center><h2>Please enter the new phrase </h2></center>
+<br><br>
+
+<center>
+{% if submitted %}
+
+    <div class="alert alert-success" role="alert">
+
+ Your changes have been saved!!!
+    </div>
+
+    <br> <br> <a  class="btn btn-primary" href="{% url 'Flashcards-add_phrase' %}" role="button">Add more</a>
+
+        <a  class="btn btn-primary" href="{% url 'Flashcards-glossary' %}" role="button">View glossary</a>
+
+        <a  class="btn btn-primary" href="{% url 'Flashcards-phrases' %}" role="button">Test yourself!</a>
+
+{% else %}
+
+    <form action= "{% url 'Flashcards-add_phrase' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="form-floating mb-3">
+
+
+
+        {{ form.as_p }}
+
+        <br>
+           <button type="submit"  class="btn btn-success">Submit Phrase</button>
+
+        <br>
+
+
+
+
+        </div>
+    </form>
+{% endif %}
+</center>
+
+
+
+{% endblock %}

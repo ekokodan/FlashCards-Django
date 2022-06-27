@@ -1,0 +1,62 @@
+{% extends "Flashcards/base.html" %}
+{% block content %}
+
+<center>
+<h1>Bienvenue Chez Daniel!</h1>
+    </center>
+<br>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+       <center>  <h4 class="card-title">What phrases have you encountered today?</h4></center>
+        <br>
+        <center> <p class="card-text">Rappelez vous de toujours appeler un chat un chat</p>
+          </center>
+        <br>
+
+         <center>
+          <a href="{% url 'Flashcards-add_phrase' %}" class="btn btn-primary">Add New Phrases</a>
+      </center>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+       <center>  <h4 class="card-title">Which new words have you encountered today?</h4></center>
+        <br>
+        <center> <p class="card-text">Il y a beaucoup d'opportunités pour quelqu'un qui le veut</p>
+          </center>
+        <br>
+
+         <center>
+          <a href="{% url 'Flashcards-add_word' %}" class="btn btn-primary">Add New Words</a>
+      </center>
+
+      </div>
+    </div>
+  </div>
+</div>
+<br> <br>
+<center>
+<div class="card text-center">
+  <div class="card-header">
+    Challenge
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Feeling confident?</h5>
+    <p class="card-text">Test yourself by exploring a number of phrases and words and seeing how you perform
+    </p>
+    <a href="{% url 'Flashcards-free' %}" class="btn btn-primary">Mastery Test</a>
+  </div>
+  <div class="card-footer text-muted">
+    V 1.0.0
+  </div>
+</div>
+     </center>
+<br>
+<img src="static/images/apple_logo.jpeg" class="img-fluid" alt="Chania">
+{% endblock %}
+
